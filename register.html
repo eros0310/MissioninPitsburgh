@@ -1,0 +1,290 @@
+﻿<html ng-app="bibleStudy">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+		<link rel="shortcut icon" href="/img/shortcut.png">
+		<title>NSWM-Reg</title>
+		<!-- Bootstrap core CSS -->
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<style>
+			<!-- Move down content because we have a fixed navbar that is 50px tall-->
+			body{padding-top: 50px;}
+			a{cursor:pointer;}
+			.control-label{text-align:left !important;}
+			.hide{display:none;}
+			.help-block{color:red;}
+		</style>
+	</head>
+	<body>
+		<div class='container'>
+		<form class='row form-horizontal' role="form">
+			<div class='row page-header'>
+				<h1>用戶名/密碼<small>Credentials</small></h1>
+			</div>
+			<div class="form-group">
+				<label for="1" class="col-md-10 control-label">電子郵箱*</label>
+				<div class='col-md-20'>
+					<input id='1' class='form-control' type="email" placeholder="Email Address" required></input>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="2" class="col-md-10 control-label">密碼*</label>
+				<div class='col-md-20'>
+					<input id='2' class='form-control' type="password" placeholder="Password" required></input>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="29" class="col-md-10 control-label">再次輸入密碼*</label>
+				<div class='col-md-20'>
+					<input id='29' class='form-control' type="password" placeholder="Re-enter Password" required></input>
+				</div>
+				<span class="help-block"><span class="glyphicon glyphicon glyphicon-remove-sign"></span> Re-entered password does not match with previous one.</span></span>
+			</div>
+			<div class='row page-header'>
+				<h1>基本信息<small>Basic Information</small></h1>
+			</div>
+			<div class="form-group">
+				<label for="3" class="col-md-10 control-label">姓（中文）*</label>
+				<div class='col-md-20'>
+					<input id='3' class='form-control' type="text" placeholder="中文姓" required></input>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="4" class="col-md-10 control-label">名（中文）*</label>
+				<div class='col-md-20'>
+					<input id='4' class='form-control' type="text" placeholder="中文名" required></input>
+				</div>				
+			</div>
+			<div class="form-group">
+				<label for="5" class="col-md-10 control-label">姓（英文）*</label>
+				<div class='col-md-20'>
+					<input id='5' class='form-control' type="text" placeholder="Last Name" required></input>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="6" class="col-md-10 control-label">名（英文）*</label>
+				<div class='col-md-20'>
+					<input id='6' class='form-control' type="text" placeholder="First Name" required></input>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="optionsRadios1" class="col-md-10 control-label">性別*</label>
+				<label class="col-md-10">
+					<input  id='optionsRadios1' type='radio' name="optionsSet1" required></input>
+					男 / Male
+				</label>
+				<label class="col-md-10">
+					<input  id='optionsRadios2' type='radio' name="optionsSet1" required></input>
+					女 / Female
+				</label>
+			</div>
+			<div class="form-group">
+				<label for="8" class="col-md-10 control-label">省份/國家*</label>
+				<div class='col-md-20'>
+					<button id='8' type="button" class="btn btn-default require dropdown-toggle" data-toggle="dropdown"><span class='content'>Hometown <span class="caret"></span></span></button>
+					<ul class="dropdown-menu" role="menu">
+						<li role='presentation'><a role="menuitem" tabindex="-1">上海</a></li>
+						<li role='presentation'><a role="menuitem" tabindex="-1">加拿大</a></li>
+						<li role='presentation'><a role="menuitem" tabindex="-1">美國</a></li>
+						<li role='presentation'><a role="menuitem" tabindex="-1">台灣</a></li>
+						<li role='presentation'><a role="menuitem" tabindex="-1">其他</a></li>
+					</ul>
+				</div>
+				<span class="help-block"><span class="glyphicon glyphicon glyphicon-remove-sign"></span> Please specify your homwtown.</span></span>
+			</div>
+			<div class='row page-header'>
+				<h1>聯繫方式<small>Contacts Info</small></h1>
+				<div class="alert alert-info">如果提交的電話號碼不屬於美國，我們將使用您的郵箱來聯繫您</div>
+			</div>
+			<div class="form-group">
+				<label for="10" class="col-md-10 control-label">手機號碼（美國）</label>
+				<div class='col-md-20'>
+					<input id='10' class='form-control' type="tel" placeholder="US Cell Number"></input>
+				</div>
+				<span class="help-block"><span class="glyphicon glyphicon glyphicon-remove-sign"></span> Please enter only digits or using format like xxx-xxx-xxxx or xxx.xxx.xxxx.</span></span>
+			</div>
+			<div class="form-group">
+				<label for="11" class="col-md-10 control-label">Line 賬號</label>
+				<div class='col-md-20'>
+					<input id='11' class='form-control' type="tel" placeholder="Line Account"></input>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="12" class="col-md-10 control-label">QQ 賬號</label>
+				<div class='col-md-20'>
+					<input id='12' class='form-control' type="tel" placeholder="QQ Account"></input>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="13" class="col-md-10 control-label">微信賬號</label>
+				<div class='col-md-20'>
+					<input id='13' class='form-control' type="text" placeholder="Wechat Account"></input>
+				</div>
+			</div>
+			<div class='row page-header'>
+				<h1>學校信息<small>School Info</small></h1>
+				<div class="alert alert-info">如果在列表中找不到對應的信息，請在右方的表格中填寫相應的信息</div>
+			</div>
+			<div class="form-group">
+				<label for="14" class="col-md-10 control-label">學校名*</label>
+				<div class='col-md-10'>
+					<button id='14' type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class='content'>School <span class="caret"></span></span></button>
+					<ul class="dropdown-menu autoInput" role="menu">
+						<li role='presentation'><a role="menuitem" tabindex="-1">University of Pittsburgh</a></li>
+						<li role='presentation'><a role="menuitem" tabindex="-1">CCAC</a></li>
+					</ul>
+				</div>
+				<div class='col-md-10'>
+					<input id='15' class='form-control inputTarget' type="text" placeholder="Can't find your school?" required></input>
+				</div>	
+				<span class="help-block"><span class="glyphicon glyphicon glyphicon-remove-sign"></span> Please specify your school.</span></span>
+			</div>
+			<div class="form-group">
+				<label for="16" class="col-md-10 control-label">專業*</label>
+				<div class='col-md-10'>
+					<button id='16' type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class='content'>Major <span class="caret"></span></span></button>
+					<ul class="dropdown-menu autoInput" role="menu">
+						<li role='presentation'><a role="menuitem" tabindex="-1">Undecided</a></li>
+						<li role='presentation'><a role="menuitem" tabindex="-1">Computer Science</a></li>
+					</ul>
+				</div>
+				<div class='col-md-10'>
+					<input id='17' class='form-control inputTarget' type="text" placeholder="Can't find your major?" required></input>
+				</div>
+				<span class="help-block"><span class="glyphicon glyphicon glyphicon-remove-sign"></span> Please specify your major.</span></span>
+			</div>
+			<div class="form-group">
+				<label for="18" class="col-md-10 control-label">課程*</label>
+				<div class='col-md-10'>
+					<button id='18' type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class='content'>Program <span class="caret"></span></span></button>
+					<ul class="dropdown-menu autoInput" role="menu">
+						<li role='presentation'><a role="menuitem" tabindex="-1">Undergraduate</a></li>
+						<li role='presentation'><a role="menuitem" tabindex="-1">Master</a></li>
+						<li role='presentation'><a role="menuitem" tabindex="-1">Undergraduate + Master</a></li>
+						<li role='presentation'><a role="menuitem" tabindex="-1">Other</a></li>
+						<li role='presentation'><a role="menuitem" tabindex="-1">I don't have a program</a></li>
+					</ul>
+				</div>
+				<div class='col-md-10'>
+					<input id='19' class='form-control inputTarget' type="text" placeholder="Can't find your program?" required></input>
+				</div>
+				<span class="help-block"><span class="glyphicon glyphicon glyphicon-remove-sign"></span> Please specify your Program.</span></span>
+			</div>
+			<div class="form-group">
+				<label for="20" class="col-md-10 control-label">課程時間*</label>
+				<div class='col-md-20'>
+					<button id='20' type="button" class="btn btn-default require dropdown-toggle" data-toggle="dropdown"><span class='content'>Length of Program <span class="caret"></span></span></button>
+					<ul class="dropdown-menu autoInput" role="menu">
+						<li role='presentation'><a role="menuitem" tabindex="-1">Less than 1 year</a></li>
+						<li role='presentation'><a role="menuitem" tabindex="-1">1-year</a></li>
+						<li role='presentation'><a role="menuitem" tabindex="-1">2-year</a></li>
+						<li role='presentation'><a role="menuitem" tabindex="-1">4-year</a></li>
+						<li role='presentation'><a role="menuitem" tabindex="-1">More than 4 years</a></li>
+					</ul>
+				</div>
+				<span class="help-block"><span class="glyphicon glyphicon glyphicon-remove-sign"></span> Please specify the length of your Program.</span></span>
+			</div>
+			<div class='row page-header'>
+				<h1>接機<small>Pick-Up</small></h1>
+			</div>
+			<div class="form-group">
+				<label for="optionsRadios3" class="col-md-10 control-label">是否需要接機*</label>
+				<label class="col-md-10">
+					<input  id='optionsRadios3' type='radio' name="optionsSet2" required></input>
+					是 / Yes
+				</label>
+				<label class="col-md-10">
+					<input  id='optionsRadios4' type='radio' name="optionsSet2" required></input>
+					否 / No
+				</label>
+			</div>
+			<div class='row page-header'>
+				<h1>臨時住宿<small>Hosting</small></h1>
+			</div>
+			<div class="form-group">
+				<label for="optionsRadios5" class="col-md-10 control-label">是否需要臨時住宿*</label>
+				<label class="col-md-10">
+					<input  id='optionsRadios5' type='radio' name="optionsSet3" required></input>
+					是 / Yes
+				</label>
+				<label class="col-md-10">
+					<input  id='optionsRadios6' type='radio' name="optionsSet3" required></input>
+					否 / No
+				</label>
+			</div>
+			<div class='row page-header'>
+				<h1>航班信息<small>Flight Info</small></h1>
+				<div class="alert alert-info">如果您需要接機或者臨時住宿，請填寫下表</div>
+			</div>
+			<div class="form-group">
+				<label for="23" class="col-md-10 control-label">航班號</label>
+				<div class='col-md-20'>
+					<input id='23' class='form-control' type="text" placeholder="Flight No."></input>
+				</div>
+				<span class="help-block"><span class="glyphicon glyphicon glyphicon-remove-sign"></span> Please specify the flight number.</span></span>
+			</div>
+			<div class="form-group">
+				<label for="24" class="col-md-10 control-label">抵美日期</label>
+				<div class='col-md-20'>
+					<input id='24' class='form-control' type="date" placeholder="Date of Arrival"></input>
+				</div>
+				<span class="help-block"><span class="glyphicon glyphicon glyphicon-remove-sign"></span> Please specify the date of Arrival.</span></span>
+			</div>
+			<div class="form-group">
+				<label for="25" class="col-md-10 control-label">抵美時間</label>
+				<div class='col-md-20'>
+					<input id='25' class='form-control' type="time" placeholder="Time of Arrival"></input>
+				</div>
+				<span class="help-block"><span class="glyphicon glyphicon glyphicon-remove-sign"></span> Please specify the time of Arrival.</span></span>
+			</div>
+			<div class="form-group">
+				<label for="26" class="col-md-10 control-label">行李數量</label>
+				<div class='col-md-20'>
+					<button id='26' type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class='content'>Number of luggages <span class="caret"></span></span></button>
+					<ul class="dropdown-menu autoInput" role="menu">
+						<li role='presentation'><a role="menuitem" tabindex="-1">0</a></li>
+						<li role='presentation'><a role="menuitem" tabindex="-1">1</a></li>
+						<li role='presentation'><a role="menuitem" tabindex="-1">2</a></li>
+						<li role='presentation'><a role="menuitem" tabindex="-1">3</a></li>
+						<li role='presentation'><a role="menuitem" tabindex="-1">4</a></li>
+						<li role='presentation'><a role="menuitem" tabindex="-1">>4</a></li>
+					</ul>
+				</div>
+				<span class="help-block"><span class="glyphicon glyphicon glyphicon-remove-sign"></span> Please specify the length of your Program.</span></span>
+			</div>
+			<div class="form-group">
+				<label for="27" class="col-md-10 control-label">隨行人數</label>
+				<div class='col-md-20'>
+					<button id='27' type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class='content'>Number of companions <span class="caret"></span></span></button>
+					<ul class="dropdown-menu autoInput" role="menu">
+						<li role='presentation'><a role="menuitem" tabindex="-1">0</a></li>
+						<li role='presentation'><a role="menuitem" tabindex="-1">1</a></li>
+						<li role='presentation'><a role="menuitem" tabindex="-1">2</a></li>
+						<li role='presentation'><a role="menuitem" tabindex="-1">>2</a></li>
+					</ul>
+				</div>
+				<span class="help-block"><span class="glyphicon glyphicon glyphicon-remove-sign"></span> Please specify the number of your companions.</span></span>
+			</div>
+			<div class='row page-header'>
+				<h1>其他<small>Comments</small></h1>
+				<div class="alert alert-info">如果您需要接機或者臨時住宿，請註明需要此項幫助的理由,這樣我們可以更好地提供幫助。您也可以在這裡填寫備註及提供額外的信息</div>
+			</div>
+			<div class="form-group">
+				<textarea id='28' class='form-control col-md-60' placeholder="Additional Comments"></textarea>
+				<span class="help-block"><span class="glyphicon glyphicon glyphicon-remove-sign"></span> Please fill in the comments.</span></span>
+			</div>
+			<button type='submit' class='row navbar-right btn btn-primary'> Submit
+			</button>
+		</form>
+		</div>
+		<!-- Placed at the end of the document so the pages load faster -->
+		<!-- jQuery -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<!-- Bootstrap core JavaScript-->		
+		<script src="js/bootstrap.min.js"></script>
+		<!-- Other Customized JavaScript-->
+		<script src="js/NSWM.js"></script>
+	</body>
+</html>
+</html>

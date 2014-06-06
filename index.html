@@ -1,0 +1,39 @@
+﻿<html ng-app="bibleStudy">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+		<link rel="shortcut icon" href="/img/shortcut.png">
+		<title>NSWM</title>
+		<!-- Bootstrap core CSS -->
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<style>
+			<!-- Move down content because we have a fixed navbar that is 50px tall-->
+			body{padding-top: 50px;}
+			a{cursor:pointer;}
+		</style>
+	</head>
+	<body>
+		<!-- banner -->
+		<div class="jumbotron">
+			<div class='container'>
+				<form class="form-signin col-md-12" role="form" id = 'logForm'>
+					<input id='logEmail' type="email" class="form-control" placeholder="Enter Email Address" required autofocus>
+					<input id='logPassword' type="password" class="form-control" placeholder="Enter Password" required>
+					<a id='retrievePwd' class='row'>Forgot your password?</a>
+					<a id='retrievePwd' href='register.html' class='row'>Register</a>
+					<button type = 'submit' class="btn btn-md btn-primary navbar-right">Log In</button>
+				</form>
+			</div>
+		</div>
+		<!-- Placed at the end of the document so the pages load faster -->
+		<!-- jQuery -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<!-- Bootstrap core JavaScript-->		
+		<script src="js/bootstrap.min.js"></script>
+		<!-- Angularjs core JavaScript-->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+		<!-- Other Customized JavaScript-->
+	</body>
+</html>
+</html>
