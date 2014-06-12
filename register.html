@@ -1,4 +1,4 @@
-﻿<html ng-app="bibleStudy">
+﻿<html ng-app='nswm'>
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,10 +14,11 @@
 			.control-label{text-align:left !important;}
 			.hide{display:none;}
 			.help-block{color:red;}
+			.dropdown-menu{height: 250px;overflow:scroll;}
 		</style>
 	</head>
 	<body>
-		<div class='container'>
+		<div class='container' ng-controller='formList'>
 		<form class='row form-horizontal' role="form">
 			<div class='row page-header'>
 				<h1>用戶名/密碼<small>Credentials</small></h1>
@@ -27,6 +28,7 @@
 				<div class='col-md-20'>
 					<input id='1' class='form-control' type="email" placeholder="Email Address" required></input>
 				</div>
+				<span class="help-block"><span class="glyphicon glyphicon glyphicon-remove-sign"></span> Email address has been used.</span></span>
 			</div>
 			<div class="form-group">
 				<label for="2" class="col-md-10 control-label">密碼*</label>
@@ -43,6 +45,7 @@
 			</div>
 			<div class='row page-header'>
 				<h1>基本信息<small>Basic Information</small></h1>
+				<div class="alert alert-info">如果省份/國家列表中找不到符合的選項，請選擇"其他"</div>
 			</div>
 			<div class="form-group">
 				<label for="3" class="col-md-10 control-label">姓（中文）*</label>
@@ -84,11 +87,7 @@
 				<div class='col-md-20'>
 					<button id='8' type="button" class="btn btn-default require dropdown-toggle" data-toggle="dropdown"><span class='content'>Hometown <span class="caret"></span></span></button>
 					<ul class="dropdown-menu" role="menu">
-						<li role='presentation'><a role="menuitem" tabindex="-1">上海</a></li>
-						<li role='presentation'><a role="menuitem" tabindex="-1">加拿大</a></li>
-						<li role='presentation'><a role="menuitem" tabindex="-1">美國</a></li>
-						<li role='presentation'><a role="menuitem" tabindex="-1">台灣</a></li>
-						<li role='presentation'><a role="menuitem" tabindex="-1">其他</a></li>
+						<li role='presentation'  ng-repeat="hometown in hometowns"><a role="menuitem" tabindex="-1">{{hometown.name}}</a></li>
 					</ul>
 				</div>
 				<span class="help-block"><span class="glyphicon glyphicon glyphicon-remove-sign"></span> Please specify your homwtown.</span></span>
@@ -124,50 +123,46 @@
 			</div>
 			<div class='row page-header'>
 				<h1>學校信息<small>School Info</small></h1>
-				<div class="alert alert-info">如果在列表中找不到對應的信息，請在右方的表格中填寫相應的信息</div>
+				<div class="alert alert-info">如果在列表中找不到對應的信息，請選擇 "Others"</div>
 			</div>
 			<div class="form-group">
 				<label for="14" class="col-md-10 control-label">學校名*</label>
 				<div class='col-md-10'>
-					<button id='14' type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class='content'>School <span class="caret"></span></span></button>
-					<ul class="dropdown-menu autoInput" role="menu">
-						<li role='presentation'><a role="menuitem" tabindex="-1">University of Pittsburgh</a></li>
-						<li role='presentation'><a role="menuitem" tabindex="-1">CCAC</a></li>
+					<button id='14' type="button" class="btn btn-default require dropdown-toggle" data-toggle="dropdown"><span class='content'>School <span class="caret"></span></span></button>
+					<ul class="dropdown-menu autoInput" role="menu" >
+						<li role='presentation' ng-repeat="school in schools"><a role="menuitem" tabindex="-1">{{school.name}}</a></li>
+						<li class="divider"></li>
+						<li role='presentation'><a role="menuitem" tabindex="-1">Others</a></li>
 					</ul>
 				</div>
-				<div class='col-md-10'>
-					<input id='15' class='form-control inputTarget' type="text" placeholder="Can't find your school?" required></input>
-				</div>	
 				<span class="help-block"><span class="glyphicon glyphicon glyphicon-remove-sign"></span> Please specify your school.</span></span>
 			</div>
 			<div class="form-group">
 				<label for="16" class="col-md-10 control-label">專業*</label>
 				<div class='col-md-10'>
-					<button id='16' type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class='content'>Major <span class="caret"></span></span></button>
-					<ul class="dropdown-menu autoInput" role="menu">
-						<li role='presentation'><a role="menuitem" tabindex="-1">Undecided</a></li>
-						<li role='presentation'><a role="menuitem" tabindex="-1">Computer Science</a></li>
+					<button id='16' type="button" class="btn btn-default require dropdown-toggle" data-toggle="dropdown"><span class='content'>Major <span class="caret"></span></span></button>
+					<ul class="dropdown-menu autoInput" role="menu" >
+						<li role='presentation' ng-repeat="major in majors"><a role="menuitem" tabindex="-1">{{major.name}}</a></li>
+						<li class="divider"></li>
+						<li role='presentation'><a role="menuitem" tabindex="-1">Others</a></li>
 					</ul>
-				</div>
-				<div class='col-md-10'>
-					<input id='17' class='form-control inputTarget' type="text" placeholder="Can't find your major?" required></input>
 				</div>
 				<span class="help-block"><span class="glyphicon glyphicon glyphicon-remove-sign"></span> Please specify your major.</span></span>
 			</div>
 			<div class="form-group">
 				<label for="18" class="col-md-10 control-label">課程*</label>
 				<div class='col-md-10'>
-					<button id='18' type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class='content'>Program <span class="caret"></span></span></button>
+					<button id='18' type="button" class="btn btn-default require dropdown-toggle" data-toggle="dropdown"><span class='content'>Program <span class="caret"></span></span></button>
 					<ul class="dropdown-menu autoInput" role="menu">
 						<li role='presentation'><a role="menuitem" tabindex="-1">Undergraduate</a></li>
 						<li role='presentation'><a role="menuitem" tabindex="-1">Master</a></li>
 						<li role='presentation'><a role="menuitem" tabindex="-1">Undergraduate + Master</a></li>
-						<li role='presentation'><a role="menuitem" tabindex="-1">Other</a></li>
+						<li role='presentation'><a role="menuitem" tabindex="-1">PhD</a></li>
+						<li class="divider"></li>
+						<li role='presentation'><a role="menuitem" tabindex="-1">Others</a></li>
+						<li class="divider"></li>
 						<li role='presentation'><a role="menuitem" tabindex="-1">I don't have a program</a></li>
 					</ul>
-				</div>
-				<div class='col-md-10'>
-					<input id='19' class='form-control inputTarget' type="text" placeholder="Can't find your program?" required></input>
 				</div>
 				<span class="help-block"><span class="glyphicon glyphicon glyphicon-remove-sign"></span> Please specify your Program.</span></span>
 			</div>
@@ -281,10 +276,13 @@
 		<!-- Placed at the end of the document so the pages load faster -->
 		<!-- jQuery -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<!-- Angular -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js"></script>
 		<!-- Bootstrap core JavaScript-->		
 		<script src="js/bootstrap.min.js"></script>
 		<!-- Other Customized JavaScript-->
 		<script src="js/NSWM.js"></script>
+		<script src="js/controllers.js"></script>
 	</body>
 </html>
 </html>

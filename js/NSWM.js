@@ -40,15 +40,11 @@
 			$("#27").find('.content').text(' Number of companions');
 		}
 	})
+	//display selected item in dropdown list
 	$('.dropdown-menu').on('click', 'a', function(){
 		var content = $(this).text().trim();
 		$(this).closest('.form-group').find('.content').html('<span class="selectedItem">'+content+'</span> <span class="caret"></span>');
 		$(this).closest('.form-group').find('button').addClass('selected');
-	})
-	//auto fill in school/major/program if found
-	$('.autoInput').on('click', 'a', function(){
-		var content = $(this).text().trim();
-		$(this).closest('.form-group').find('.inputTarget').val(content);
 	})
 	//submit event
 	$('form').on('submit', function(e){
@@ -127,9 +123,9 @@
 						line:$('#11').val(),
 						qq:$('#12').val(),
 						wechat:$('#13').val(),
-						school:$('#15').val(),
-						major:$('#17').val(),
-						program:$('#19').val(),
+						school:$('#14').find('.selectedItem').text().trim(),
+						major:$('#16').find('.selectedItem').text().trim(),
+						program:$('#18').find('.selectedItem').text().trim(),
 						length:$('#20').find('.content').text().trim(),
 						pick:pickup,
 						hosting:host,
@@ -139,7 +135,7 @@
 						lug:$('#26').find('.content').text().trim(),
 						com:$('#27').find('.content').text().trim(),
 						comment:$('#28').val()
-					}
+				}
 			});
 		}
 	})
